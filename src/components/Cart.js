@@ -1,18 +1,13 @@
 import React, { Component } from 'react'
 import {connect} from "react-redux";
 import{removeFromCart} from "../actions/actionsInCart";
-import {IoIosCloseCircle} from "react-icons/io";
+import { MdRemoveShoppingCart } from "react-icons/md";
 
  class Cart extends Component {
    
     
   
-    createOrder=(e)=>{
-        e.preventDefault();
-        const order={
-
-        }
-    }
+   
     render() {
 
         if(this.props.cartItems.length===0){
@@ -29,8 +24,17 @@ import {IoIosCloseCircle} from "react-icons/io";
                     {/* price of all products */}
                    
                   {this.props.cartItems.map(product=>{
-                      return <div><h1>{product.title}</h1>
-                        <button onClick={()=>this.props.removeFromCart(product)}><IoIosCloseCircle/></button>
+                      return <div className="cart-product" key={product._id}>
+                          <img src={`images/${product.img}.jpg`} alt={product.img}></img>
+                            <footer>
+                          <h3>{product.title}</h3>
+                          <div>
+                          <h5>{product.price}</h5>
+                          <div className="btn" onClick={()=>this.props.removeFromCart(product)}><MdRemoveShoppingCart/><p>{product.cart}</p></div>
+
+                          </div>                           
+                       
+                        </footer>
                       </div>})} 
                   
              
