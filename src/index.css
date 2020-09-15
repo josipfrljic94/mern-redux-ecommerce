@@ -63,17 +63,22 @@ min-height: 80vh;
   height: 20%;
   width: 100%;
  justify-content: center;
+ justify-content: space-around;
  align-items: center;
 }
 .products-container div footer div{
   height: 100%;
+  
   display: grid;
   align-items: center;
   margin-top: 0;
   box-shadow: none;
+  text-align: center;
+  
 }
 .products-container div footer div h6{
-  font-size: 0.8rem;
+  font-weight: 600;
+  font-size: 0.9rem;
  margin: 0;
  padding: 0;
   color: #07071a;
