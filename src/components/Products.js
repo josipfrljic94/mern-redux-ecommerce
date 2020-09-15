@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import {fetchProducts} from "../actions/getProduct";
 import { connect } from "react-redux";
 import { IoMdCart} from "react-icons/io";
-
+import {addToCart} from "../actions/actionsInCart"
 class Products extends Component {
 
     componentDidMount() {
@@ -26,7 +26,7 @@ class Products extends Component {
                             <h6 style={{color:" #b4b3b3"}}>{product.price}$</h6>
                                 </div>
                             
-                            <a className="btn" href="#"><IoMdCart/></a>
+                            <button className="btn"  onClick={()=>{this.props.addToCart(product)}} ><IoMdCart/></button>
                             
                             </footer>
                           
@@ -42,6 +42,6 @@ class Products extends Component {
 
 const mapStateToProps = (state) => ({
     products: state.products.filteredItems,
-   
+    cartItems:state.cart.cartItems
 });
-  export default connect(mapStateToProps, { fetchProducts})(Products);
+  export default connect(mapStateToProps, { fetchProducts,addToCart})(Products);
