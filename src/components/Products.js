@@ -18,7 +18,7 @@ class Products extends Component {
             <section className='products-container' >
                 
                 {this.props.products.map(product=>{
-                     return <div key={product._id}>
+                     return <div key={product._id} className="product-card">
                             <img src={`images/${product.img}.jpg`} alt={product.img}></img>
                             <footer>
                                 <div>
